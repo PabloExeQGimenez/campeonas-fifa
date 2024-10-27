@@ -1,0 +1,47 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: campeonas_fifa_db
+      MYSQL_USER: exeq
+      MYSQL_PASSWORD: exeq
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - campeonas_network
+
+  backend:
+    build: ../backend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: exeq
+      DB_PASSWORD: exeq
+      DB_NAME: campeonas_fifa_db
+      DB_PORT: 3306
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../backend:/usr/src/app
+    networks:
+      - campeonas_network
+
+  frontend:
+    build: ../frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ../frontend:/usr/src/app
+    networks:
+      - campeonas_network
+
+volumes:
+  db_data:
+
+networks:
+  campeonas_network:
