@@ -9,4 +9,4 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-CMD dockerize -wait tcp://db:3306 -timeout 300s npm start
+CMD dockerize -wait tcp://db:3306 -timeout 600s npm start
