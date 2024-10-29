@@ -1,0 +1,31 @@
+<!-- src/app/components/players-list/players-list.component.html -->
+<h1>Lista de Jugadoras</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre Completo</th>
+      <th>Posiciones</th>
+      <th>Calificación General</th>
+      <th>Potencial</th>
+      <th>Edad</th>
+      <th>Versión de FIFA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.long_name }}</td>
+      <td>{{ player.player_positions }}</td>
+      <td>{{ player.overall }}</td>
+      <td>{{ player.potential }}</td>
+      <td>{{ player.age }}</td>
+      <td>{{ player.fifa_version }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Controles de paginación -->
+<div class="pagination">
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+  <span>Página {{ currentPage }} de {{ totalPages }}</span>
+  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
+</div>

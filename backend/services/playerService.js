@@ -1,14 +1,19 @@
 const Player = require('../models/player')
 
-const getAllPlayers = async (limit = 10) => {
+// Servicio para obtener todos los jugadores
+const getAllPlayers = async (limit, offset) => {
   try {
-    return await Player.findAll({
-      limit
+    const { rows: players, count: totalPlayers } = await Player.findAndCountAll({
+      limit: limit,
+      offset: offset
     });
+    return { players, totalPlayers }; // Devuelve players y totalPlayers
   } catch (error) {
-    throw new Error(`Error al obtener las jugadoras: ${error.message}`);
+    console.error('Error en getAllPlayers:', error);
+    throw error; // Lanza el error para que el controlador lo capture
   }
 };
+
 
 const getOnePlayerById = async (id) => {
   try {

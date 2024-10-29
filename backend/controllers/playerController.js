@@ -2,36 +2,42 @@ const playerService = require('../services/playerService');
 const { validationResult } = require('express-validator');
 
 const getAllPlayersController = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
   const offset = (page - 1) * limit;
 
   try {
-    const { players, totalPlayers } = await playerService.getAllPlayers(limit, offset);
-
-    if (players.length === 0) {
+    const result = await playerService.getAllPlayers(limit, offset);
+    
+    if (!result || !result.players) {
       return res.status(404).json({
         success: false,
         message: "No se encontraron jugadores"
       });
     }
 
+    const { players, totalPlayers } = result;
+
     return res.status(200).json({
       success: true,
       data: players,
       meta: {
         totalPlayers,
-        currentPage: parseInt(page),
+        currentPage: page,
         totalPages: Math.ceil(totalPlayers / limit),
-        limit: parseInt(limit)
+        limit
       }
     });
   } catch (error) {
+    console.error('Error al mostrar las jugadoras:', error);
     return res.status(500).json({
       success: false,
       message: `Error al mostrar las jugadoras: ${error.message}`
     });
   }
 };
+
+
 
 
 const getOnePlayerController = async (req, res) => {

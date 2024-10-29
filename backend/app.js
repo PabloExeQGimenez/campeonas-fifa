@@ -3,10 +3,12 @@ const app = express();
 const morgan = require('morgan');
 const sequelize = require('./config/database');
 require('dotenv').config();
-const router = require('./routes/playerRoutes')
+const router = require('./routes/playerRoutes');
+const cors = require('cors');
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send("Hola Campeonas")
