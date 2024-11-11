@@ -1,6 +1,6 @@
 # Campeonas FIFA 🏆
 
-**Campeonas FIFA** es una aplicación web Full Stack (versión MVP) diseñada para gestionar jugadoras de FIFA. Permite la creación, edición y visualización de jugadoras con su información detallada, proporcionando una experiencia de usuario intuitiva. La aplicación integra autenticación segura y exportación de datos filtrados.
+**Campeonas FIFA** es una aplicación web Full Stack (versión MVP) construida en el marco del curso de XAcademy DEV. Está diseñada para gestionar jugadoras de FIFA. Permite la creación, edición y visualización de jugadoras con su información detallada, proporcionando una experiencia de usuario intuitiva. La aplicación integra autenticación segura y exportación de datos filtrados.
 
 ---
 
