@@ -70,8 +70,7 @@ http://localhost:3000/api/v1/api-doc
 3. Levanta el entorno completo con Docker Compose:
 
    ```bash
-  docker-compose up
-     ```
+   docker-compose up
 
 
 ## 🔑 Credenciales de Acceso
