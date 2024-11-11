@@ -7,7 +7,7 @@
 ## 🚀 Funcionalidades del MVP
 
 ### Autenticación
-- **Inicio de sesión** con validación de credenciales.
+- **Inicio de sesión** con validación de credenciales. (se especifican las credenciales al final)
 - **Acceso restringido** a las funcionalidades mediante tokens JWT.
 
 ### Gestión de Jugadoras
@@ -52,7 +52,7 @@
 
 ---
 
-Documentación:
+## Documentación de endpoints:
 http://localhost:3000/api/v1/api-doc
 
 ## 🖥️ Cómo Ejecutar la Aplicación
@@ -66,11 +66,12 @@ http://localhost:3000/api/v1/api-doc
 
   ```bash
   cd campeonas-fifa
-
+  ```
 3. Levanta el entorno completo con Docker Compose:
 
-  ```bash
+   ```bash
   docker-compose up
+
 
 ## 🔑 Credenciales de Acceso
 
