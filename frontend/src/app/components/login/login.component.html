@@ -1,0 +1,38 @@
+<h2>Bienvenido/a a la wiki de jugadoras FIFA</h2>
+
+<div class="login-container">
+  
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+    <div
+      *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+    >
+      <small *ngIf="loginForm.get('email')?.errors?.['required']"
+        >El email es obligatorio.</small
+      >
+      <small *ngIf="loginForm.get('email')?.errors?.['email']"
+        >Debe ser un email válido.</small
+      >
+    </div>
+  </div>
+  <div>
+    <label for="password">Contraseña:</label>
+    <input id="password" formControlName="password" type="password" />
+    <div
+      *ngIf="
+        loginForm.get('password')?.invalid && loginForm.get('password')?.touched
+      "
+    >
+      <small *ngIf="loginForm.get('password')?.errors?.['required']"
+        >La contraseña es obligatoria.</small
+      >
+      <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+        >Debe tener al menos 6 caracteres.</small
+      >
+    </div>
+  </div>
+    <button class="btn" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+  </form>
+</div>

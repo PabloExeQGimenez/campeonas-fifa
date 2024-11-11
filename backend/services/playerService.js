@@ -1,16 +1,26 @@
-const Player = require('../models/player')
+const Player = require('../models/player');
+const { Op } = require('sequelize');
 
-// Servicio para obtener todos los jugadores
-const getAllPlayers = async (limit, offset) => {
+const getAllPlayers = async (limit, offset, long_name = '', club_name = '') => {
   try {
+    const whereConditions = {};
+    if (long_name) {
+      whereConditions.long_name = { [Op.like]: `%${long_name}%` };
+    }
+
+    if (club_name) {
+      whereConditions.club_name = { [Op.like]: `%${club_name}%` };
+    }
+    
     const { rows: players, count: totalPlayers } = await Player.findAndCountAll({
+      where: whereConditions,
       limit: limit,
       offset: offset
     });
-    return { players, totalPlayers }; // Devuelve players y totalPlayers
+    return { players, totalPlayers };
   } catch (error) {
-    console.error('Error en getAllPlayers:', error);
-    throw error; // Lanza el error para que el controlador lo capture
+    console.error(error);
+    throw error;
   }
 };
 
@@ -23,13 +33,13 @@ const getOnePlayerById = async (id) => {
     }
     return player;
   } catch (error) {
-    throw new Error(`Error al obtener una jugadora: ${error.message}`);
+    throw new Error(`Error al obtener la jugadora: ${error.message}`);
   }
 };
 
 const createPlayer = async (data) => {
   try {
-    const { 
+    const {
       long_name,
       age,
       player_face_url,
@@ -53,7 +63,7 @@ const createPlayer = async (data) => {
 
     return newPlayer;
   } catch (error) {
-    throw new Error (error);
+    throw new Error(error);
   }
 };
 
@@ -78,9 +88,24 @@ const deletePlayer = async (id) => {
       throw new Error('No se encontró la jugadora');
     };
     await player.destroy();
-    return { message: "Jugadora eliminada correctamente"};
+    return { message: "Jugadora eliminada correctamente" };
   } catch (error) {
     throw new Error(`Error al eliminar la jugadora: ${error.message}`);
+  }
+}
+
+const findPlayersByName = async (name) => {
+  try {
+    const players = await Player.findAll({
+      where: {
+        long_name: {
+          [Op.like]: `%${name}%`
+        }
+      }
+    })
+    console.log('Resultados encontrados:', players);
+  } catch (error) {
+    throw error
   }
 }
 
@@ -89,5 +114,6 @@ module.exports = {
   getOnePlayerById,
   createPlayer,
   updatePlayer,
-  deletePlayer
+  deletePlayer,
+  findPlayersByName
 };

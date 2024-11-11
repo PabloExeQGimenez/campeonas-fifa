@@ -1,0 +1,68 @@
+<div class="edit-player-container">
+  <div>
+    <h3>Editar Jugadora</h3>
+    <form [formGroup]="editPlayerForm" (ngSubmit)="onSubmit()">
+      <div class="form1">
+        <label>
+          Nombre Completo:
+          <input formControlName="long_name" type="text" />
+        </label>
+
+        <label>
+          Club:
+          <input formControlName="club_name" type="text" />
+        </label>
+
+        <label class="number">
+          Calificación General:
+          <input formControlName="overall" type="number" />
+        </label>
+
+        <label class="number">
+          Potencial:
+          <input formControlName="potential" type="number" />
+        </label>
+
+        <label class="number">
+          Edad:
+          <input formControlName="age" type="number" />
+        </label>
+      </div>
+      <h3>Habilidades</h3>
+      <div class="habilidades">
+        <label class="number">
+          Ritmo:
+          <input formControlName="pace" type="number" />
+        </label>
+
+        <label class="number">
+          Tiro:
+          <input formControlName="shooting" type="number" />
+        </label>
+
+        <label class="number">
+          Pase:
+          <input formControlName="passing" type="number" />
+        </label>
+
+        <label class="number">
+          Regate:
+          <input formControlName="dribbling" type="number" />
+        </label>
+
+        <label class="number">
+          Defensa:
+          <input formControlName="defending" type="number" />
+        </label>
+
+        <label class="number">
+          Físico:
+          <input formControlName="physic" type="number" />
+        </label>
+      </div>
+      <button type="submit" [disabled]="editPlayerForm.invalid" class="btn">
+        Guardar Cambios
+      </button>
+    </form>
+  </div>
+</div>

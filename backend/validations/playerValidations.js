@@ -1,5 +1,9 @@
 const { check } = require('express-validator');
 
+const findPlayersByNameValidations = [
+  check('long_name').not().isEmpty().withMessage('El nombre es obligatorio'),
+
+]
 const createPlayerValidations = [
   check('fifa_version').not().isEmpty().withMessage('La versión de FIFA es obligatoria'),
   check('fifa_update').isInt().withMessage('La actualización de FIFA debe ser una fecha válida'),
@@ -27,5 +31,6 @@ module.exports = {
   getPlayerByIdValidations,
   deletePlayerValidations,
   updatePlayerValidations,
-  createPlayerValidations
+  createPlayerValidations,
+  findPlayersByNameValidations
 }

@@ -1,0 +1,121 @@
+.contenedor-card {
+  text-align: center;
+  width: 100vw;
+  height: calc(100vh - 3.5rem);
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    " . . foto nombre nombre nombre btn ."
+    " posicion posicion posicion posicion posicion posicion posicion posicion"
+    " skills skills skills skills skills skills skills skills";
+}
+.skills {
+  grid-area: skills;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.club {
+  grid-area: club;
+}
+
+.nombre {
+  grid-area: nombre;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 0 10px 10px 0;
+
+  & h3 {
+    margin-top: 3rem;
+    border-top: solid 1px white;
+  }
+  /* box-shadow: 0px 11px 6px -4px rgba(0,0,0,0.75); */
+}
+
+.foto {
+  grid-area: foto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 10px;
+  /* box-shadow: 0px 11px 6px -4px rgba(0,0,0,0.75); */
+
+  & img {
+    width: 10rem;
+  }
+}
+
+.datos {
+  grid-area: datos;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  padding-bottom: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.posicion {
+  grid-area: posicion;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 3rem;
+
+  .destacados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    background-color: var(--lila-oscuro);
+
+    & span {
+      padding: 1rem;
+    }
+  }
+  & span {
+    padding: 1rem;
+  }
+}
+
+.resaltado {
+  color: var(--lila-claro);
+  font-weight: bold;
+}
+
+.tabla {
+  grid-area: tabla;
+}
+
+h3 {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+p {
+  color: rgb(176, 174, 174);
+}
+
+table {
+  width: 100%;
+}
+
+table,
+tr,
+th,
+td {
+  border: solid 1px white;
+}

@@ -1,0 +1,33 @@
+.login-container{
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  padding: 2rem;
+  margin: 1rem auto;
+  gap: 1rem;
+  border-radius: 15px;
+
+  .btn {
+    width: 100%;
+  }
+  & div {
+    margin: 2rem;
+
+  }
+  & input {
+    width: auto;
+    margin-left: 2rem;
+    height: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: white;
+    font-size: 1em;
+  }
+}
+
+h2 {
+  background-color: rgba(0,0,0,0.8);
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 15px;
+}

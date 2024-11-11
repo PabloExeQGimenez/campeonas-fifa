@@ -1,21 +1,23 @@
-// src/app/components/players-list/players-list.component.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common';
 import { PlayersService } from '../../services/players.service';
+import { PlayerTableRowComponent } from "./player-table-row/player-table-row.component";
+import { RouterLink } from '@angular/router';
+import { PlayerSearchComponent } from '../player-search/player-search.component';
 
 @Component({
   selector: 'app-players-list',
   standalone: true,
-  imports: [CommonModule], // Añade CommonModule aquí
+  imports: [CommonModule, PlayerTableRowComponent, RouterLink, PlayerSearchComponent],
   templateUrl: './player-list.component.html',
   styleUrls: ['./player-list.component.css']
 })
 export class PlayersListComponent {
-  players: any[] = [];       // Lista de jugadoras
-  currentPage: number = 1;    // Página actual
-  limit: number = 10;         // Límite de jugadoras por página
-  totalPages: number = 0;     // Total de páginas
-  totalPlayers: number = 0;   // Total de jugadoras
+  players: any[] = [];
+  currentPage: number = 1;
+  limit: number = 10;
+  totalPages: number = 0;
+  totalPlayers: number = 0;
 
   constructor(private playersService: PlayersService) {}
 
@@ -23,7 +25,6 @@ export class PlayersListComponent {
     this.getPlayers(this.currentPage, this.limit);
   }
 
-  // Método para obtener la lista de jugadoras con paginación
   getPlayers(page: number, limit: number): void {
     this.playersService.getPlayers(page, limit).subscribe({
       next: (response) => {
@@ -38,7 +39,6 @@ export class PlayersListComponent {
     });
   }
 
-  // Método para cambiar de página
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.getPlayers(page, this.limit);

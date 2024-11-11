@@ -1,0 +1,161 @@
+<div class="create-container">
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()" class="form1">
+    <div class="group">
+      <label for="long_name">Nombre Completo:</label>
+      <input id="long_name" formControlName="long_name" />
+      <div
+        *ngIf="
+          playerForm.get('long_name')?.invalid &&
+          playerForm.get('long_name')?.touched
+        "
+      >
+        <small
+          >El nombre es obligatorio y debe tener al menos 3 caracteres.</small
+        >
+      </div>
+    </div>
+    <div class="group">
+      <label for="age">Edad:</label>
+      <input id="age" type="number" formControlName="age" />
+      <div
+        *ngIf="playerForm.get('age')?.invalid && playerForm.get('age')?.touched"
+      >
+        <small>La edad debe estar entre 15 y 50 años.</small>
+      </div>
+    </div>
+    <div class="group">
+      <label for="nationality">Nacionalidad:</label>
+      <input id="nationality" formControlName="nationality" />
+      <div
+        *ngIf="
+          playerForm.get('nationality')?.invalid &&
+          playerForm.get('nationality')?.touched
+        "
+      >
+        <small>La nacionalidad es obligatoria.</small>
+      </div>
+    </div>
+    <div class="group">
+      <label for="player_face_url">URL de Foto del Jugador:</label>
+      <input id="player_face_url" formControlName="player_face_url" />
+      <div
+        *ngIf="
+          playerForm.get('player_face_url')?.invalid &&
+          playerForm.get('player_face_url')?.touched
+        "
+      >
+        <small *ngIf="playerForm.get('player_face_url')?.errors?.['required']"
+          >La URL es obligatoria.</small
+        >
+        <small *ngIf="playerForm.get('player_face_url')?.errors?.['pattern']"
+          >Debe ser una URL válida de imagen.</small
+        >
+      </div>
+    </div>
+    <div class="group">
+      <label for="fifa_version">Versión FIFA:</label>
+      <input id="fifa_version" formControlName="fifa_version" />
+      <div
+        *ngIf="
+          playerForm.get('fifa_version')?.invalid &&
+          playerForm.get('fifa_version')?.touched
+        "
+      >
+        <small>La versión de FIFA es obligatoria.</small>
+      </div>
+    </div>
+
+    <div class="group">
+      <label for="fifa_update">Actualización FIFA:</label>
+      <input id="fifa_update" formControlName="fifa_update" />
+      <div
+        *ngIf="
+          playerForm.get('fifa_update')?.invalid &&
+          playerForm.get('fifa_update')?.touched
+        "
+      >
+        <small>La actualización de FIFA es obligatoria.</small>
+      </div>
+    </div>
+
+
+    <div class="group">
+      <label for="player_positions">Posiciones del Jugador:</label>
+      <input id="player_positions" formControlName="player_positions" />
+      <div
+        *ngIf="
+          playerForm.get('player_positions')?.invalid &&
+          playerForm.get('player_positions')?.touched
+        "
+      >
+        <small>Las posiciones son obligatorias.</small>
+      </div>
+    </div>
+
+    <div class="group">
+      <label for="overall">Calificación General (Overall):</label>
+      <input id="overall" type="number" formControlName="overall" />
+      <div
+        *ngIf="
+          playerForm.get('overall')?.invalid &&
+          playerForm.get('overall')?.touched
+        "
+      >
+        <small>El overall debe estar entre 0 y 100.</small>
+      </div>
+    </div>
+
+    <div class="group">
+      <label for="potential">Potencial:</label>
+      <input id="potential" type="number" formControlName="potential" />
+      <div
+        *ngIf="
+          playerForm.get('potential')?.invalid &&
+          playerForm.get('potential')?.touched
+        "
+      >
+        <small>El potencial debe estar entre 0 y 100.</small>
+      </div>
+    </div>
+
+    <div class="group">
+      <label for="club_name">Nombre del Club:</label>
+      <input id="club_name" formControlName="club_name" />
+      <div
+        *ngIf="
+          playerForm.get('club_name')?.invalid &&
+          playerForm.get('club_name')?.touched
+        "
+      >
+        <small>El nombre del club es obligatorio.</small>
+      </div>
+    </div>
+
+    <div formGroupName="skills" class="skills">
+      <h3>Habilidades</h3>
+      <div class="group">
+        <label for="pace">Ritmo:</label>
+        <input id="pace" type="number" formControlName="pace" />
+      </div>
+      <div class="group">
+        <label for="shooting">Tiro:</label>
+        <input id="shooting" type="number" formControlName="shooting" />
+      </div>
+      <div class="group">
+        <label for="dribbling">Dribbling:</label>
+        <input id="dribbling" type="number" formControlName="dribbling" />
+      </div>
+      <div class="group">
+        <label for="defense">Defensa:</label>
+        <input id="defense" type="number" formControlName="defense" />
+      </div>
+      <div class="group">
+        <label for="passing">Pase:</label>
+        <input id="passing" type="number" formControlName="passing" />
+      </div>
+    </div>
+    <button type="submit" [disabled]="playerForm.invalid" class="btn">
+      Crear Jugadora
+    </button>
+  </form>
+</div>

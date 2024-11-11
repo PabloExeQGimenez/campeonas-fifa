@@ -1,19 +1,34 @@
-<!-- src/app/components/players-list/players-list.component.html -->
-<h1>Lista de Jugadoras</h1>
-<table>
+<app-player-search></app-player-search>
+<!-- <table>
   <thead>
     <tr>
-      <th>Nombre Completo</th>
-      <th>Posiciones</th>
-      <th>Calificación General</th>
+      <th colspan="2"><div class="pagination">
+        <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+          Anterior
+        </button>
+        <span>Página {{ currentPage }} de {{ totalPages }}</span>
+        <button
+          (click)="goToPage(currentPage + 1)"
+          [disabled]="currentPage === totalPages"
+        >
+          Siguiente
+        </button>
+      </div></th>
+      <th>Posicion</th>
+      <th>Calif.</th>
       <th>Potencial</th>
       <th>Edad</th>
-      <th>Versión de FIFA</th>
+      <th>FIFA</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let player of players">
-      <td>{{ player.long_name }}</td>
+    <tr *ngFor="let player of players" class="tr">
+      <td>
+        <img [src]="player.player_face_url" alt="{{ player.long_name }}" />
+      </td>
+      <td class="align-left">
+        <a [routerLink]="['/players', player.id]">{{ player.long_name }} ...detalles</a>
+      </td>
       <td>{{ player.player_positions }}</td>
       <td>{{ player.overall }}</td>
       <td>{{ player.potential }}</td>
@@ -22,10 +37,15 @@
     </tr>
   </tbody>
 </table>
-
-<!-- Controles de paginación -->
 <div class="pagination">
-  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+    Anterior
+  </button>
   <span>Página {{ currentPage }} de {{ totalPages }}</span>
-  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
-</div>
+  <button
+    (click)="goToPage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+  >
+    Siguiente
+  </button>
+</div> -->

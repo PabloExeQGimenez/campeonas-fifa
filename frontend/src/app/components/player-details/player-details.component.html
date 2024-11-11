@@ -1,0 +1,42 @@
+<div *ngIf="player" class="contenedor-card">
+  <div class="foto">
+    <img [src]="player.player_face_url" alt="{{ player.long_name }}" />
+  </div>
+  <div class="nombre">
+    <h2>{{ player.long_name }}</h2>
+    <h3>{{ player.club_name }}</h3>
+  </div>
+  <div class="posicion">
+    <div class="div">
+      <span>€: {{ player.value_eur }}</span>
+      <span>|</span>
+      <span>país: {{ player.nationality_name }}</span>
+      <span>|</span>
+      <span>FIFA: `{{ player.fifa_version }}</span>
+
+    </div>
+    <div class="destacados">
+      <span>pos: {{ player.player_positions }}</span>
+      <span>|</span>
+      <span>calif: {{ player.overall }}</span>
+      <span>|</span>
+      <span>pot: {{ player.potential }}</span>
+      <span>|</span>
+    </div>
+    <div>
+      <span>alt: {{ player.height_cm}} cm</span>
+      <span>|</span>
+      <span>pes: {{ player.weight_kg }} kg</span>
+      <span>|</span>
+      <span>cue: `{{ player.body_type }}</span>
+    </div>
+  </div>
+  <div class="skills">
+    <span>Habilidades Generales</span>
+    <app-player-skills-chart
+      [playerSkills]="playerSkills"
+    ></app-player-skills-chart>
+  </div>
+  <button [routerLink]="['/players/edit', player.id]" class="btn">Editar Jugadora</button>
+
+</div>

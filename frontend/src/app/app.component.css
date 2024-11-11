@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contenedor {
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 3.5rem 3rem auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "header"
+    "principal";
+}
+
+header {
+  grid-area: header;
+}
+ 
+.principal {
+  grid-area: principal;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

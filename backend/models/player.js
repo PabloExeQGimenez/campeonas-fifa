@@ -1,6 +1,12 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
+// obligatorios: 
+// fifa_version fifa_update 
+// player_face_url long_name 
+// player_positions overall 
+// potential age
+
 const Player = sequelize.define('Player', {
   id: {
     type: DataTypes.INTEGER,
@@ -262,8 +268,3 @@ const Player = sequelize.define('Player', {
 
 module.exports = Player;
 
-// obligatorios: 
-// fifa_version fifa_update 
-// player_face_url long_name 
-// player_positions overall 
-// potential age

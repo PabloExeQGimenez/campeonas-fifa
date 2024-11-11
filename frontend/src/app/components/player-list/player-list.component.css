@@ -1,0 +1,58 @@
+table {
+  min-width: 1200px;
+  height: auto;
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  border-top: 1px solid var(--lila-claro);
+
+  & thead {
+    & th {
+      background-color: rgba(0, 0, 0, 0.9) ;
+      padding: 1rem;
+      cursor: default;
+    }
+  }
+  & tbody {
+    & tr {
+      border-bottom: solid;
+      & a {
+        text-decoration: none;
+        color: white;
+      }
+      & td {
+        padding: 0.7rem;
+        text-align: center;
+
+        & img {
+          width: 3rem;
+        }
+      }
+
+      .align-left {
+        text-align: left;
+      }
+      &:hover {
+        background-color: var(--lila-oscuro);
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  gap:1rem;
+  justify-content: center;
+
+  & button{
+    background-color: var(--lila-oscuro);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+
+    &:hover{
+      background-color: var(--lila-claro);
+      cursor: pointer;
+    }
+  }
+}

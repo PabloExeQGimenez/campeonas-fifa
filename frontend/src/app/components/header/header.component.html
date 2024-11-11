@@ -1,0 +1,13 @@
+<header>
+  <h1>Campeonas FIFA</h1>
+  <nav>
+    <ul>
+      <li><a routerLink="/players" routerLinkActive="active">Listado de Jugadoras</a></li>
+      <li><a routerLink="/player-create" routerLinkActive="active">Crear Jugadora</a></li>
+      <li *ngIf="!isLoggedIn()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li *ngIf="isLoggedIn()">
+        <a href="#" (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</header>

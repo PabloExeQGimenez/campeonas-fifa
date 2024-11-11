@@ -1,0 +1,70 @@
+<div class="contenedor">
+  <div class="filtros">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      placeholder="Buscar por nombre o apellido"
+    />
+
+    <select [(ngModel)]="selectedClub" (change)="onClubChange()">
+      <option value="">Todos los clubes</option>
+      <option *ngFor="let club of clubs" [value]="club">{{ club }}</option>
+    </select>
+    <div>
+      <button (click)="downloadCSV()" class="btn">Descargar Listado CSV</button>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <div class="paginacion">
+            <button
+              (click)="goToPage(currentPage - 1)"
+              [disabled]="currentPage === 1"
+            >
+              <<<
+            </button>
+            <span>Página {{ currentPage }} de {{ totalPages }}</span>
+            <button
+              (click)="goToPage(currentPage + 1)"
+              [disabled]="currentPage === totalPages"
+            >
+              >>>
+            </button>
+          </div>
+        </th>
+        
+        <th>Posic.</th>
+        <th>Calif.</th>
+        <th>Poten.</th>
+        <th>Club</th>
+        <th>País</th>
+        <th>FIFA</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>
+          <img
+            [src]="player.player_face_url"
+            alt="{{ player.long_name }}"
+            width="50"
+            height="50"
+          />
+        </td>
+        <td>
+          <a [routerLink]="['/players', player.id]">{{ player.long_name }} ...</a>
+        </td>        
+        <td>{{ player.player_positions }}</td>
+        <td>{{ player.overall }}</td>
+        <td>{{player.potential}}</td>
+        <td>{{ player.club_name }}</td>
+        <td>{{ player.nationality_name }}</td>
+        <td>` {{ player.fifa_version }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
