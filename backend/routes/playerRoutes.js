@@ -10,7 +10,8 @@ const {
  } = require('../controllers/playerController');
 const {
   loginController,
-  registerController
+  registerController,
+  getAllUsersController
 } = require('../controllers/userController');
 const {
   createPlayerValidations,
@@ -23,6 +24,7 @@ const {
   registerValidations
 } = require('../validations/userValidations');
 const { authenticateToken } = require('../middlewares/authMiddleware');
+
 
 /**
  * @swagger
@@ -237,4 +239,5 @@ router.delete('/players/:id', deletePlayerValidations, deletePlayerController);
  */
 router.get('/clubs', getAllClubsController);
 
+router.get('/playersall', getAllClubsController)
 module.exports = router;

@@ -6,8 +6,11 @@
 
 ## 🚀 Funcionalidades del MVP
 
+## Registro
+- **Usuarios nuevos deben registrarse** ingresando un email y contraseña (6 caracteres)
+
 ### Autenticación
-- **Inicio de sesión** con validación de credenciales. (se especifican las credenciales al final)
+- **Inicio de sesión** con validación de credenciales.
 - **Acceso restringido** a las funcionalidades mediante tokens JWT.
 
 ### Gestión de Jugadoras
@@ -42,6 +45,7 @@
 ### Contenerización
 - **Docker** y **Docker Compose**
 
+
 ---
 
 ## 📚 Librerías Utilizadas
@@ -49,11 +53,15 @@
 - **Gráficos**: [ApexCharts](https://apexcharts.com/)  
 - **Manejo de Archivos XLSX**: [xlsx](https://www.npmjs.com/package/xlsx)  
 - **Documentación de la API**: [Swagger](https://swagger.io/)
-
 ---
 
+## Validaciones
+
+- **Express-validator** en Backend
+- **Reactive Forms** en Frontend
+
 ## Documentación de endpoints:
-http://localhost:3000/api/v1/api-doc
+http://localhost:3000/api-docs
 
 ## 🖥️ Cómo Ejecutar la Aplicación
 
@@ -72,11 +80,8 @@ http://localhost:3000/api/v1/api-doc
    ```bash
    docker-compose up
 
-
-## 🔑 Credenciales de Acceso
-
-Usuario: user@campeonas.com
-Contraseña: user123
+# Registrarse con mail y contraseña de 6 caracteres o más
+# Loguearse  
 
 
 ## 📧 Contacto

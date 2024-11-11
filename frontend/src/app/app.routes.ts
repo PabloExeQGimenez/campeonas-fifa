@@ -5,8 +5,10 @@ import { PlayerSearchComponent } from './components/player-search/player-search.
 import { EditPlayerComponent } from './components/edit-player/edit-player.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/login.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'players/edit/:id', component: EditPlayerComponent, canActivate: [AuthGuard] },
   { path: 'players', component: PlayerSearchComponent, canActivate: [AuthGuard] },

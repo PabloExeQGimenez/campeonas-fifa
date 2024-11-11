@@ -49,7 +49,23 @@ const registerController = async (req, res) => {
   }
 };
 
+const getAllUsersController = async (req, res) => {
+  try {
+    const users = await getAllUsers();
+    return res.status(200).json({
+      success: true,
+      data: users,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Error al obtener los usuarios',
+      error: error.message,
+    });
+  }
+};
 module.exports = {
   loginController,
-  registerController
+  registerController,
+  getAllUsersController
 }

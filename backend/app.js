@@ -7,6 +7,7 @@ const router = require('./routes/playerRoutes');
 const cors = require('cors');
 const swaggerDocs = require('./config/swagger');
 
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());

@@ -5,6 +5,7 @@
       <li><a routerLink="/players" routerLinkActive="active">Listado de Jugadoras</a></li>
       <li><a routerLink="/player-create" routerLinkActive="active">Crear Jugadora</a></li>
       <li *ngIf="!isLoggedIn()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li *ngIf="!isLoggedIn()"><a routerLink="/register" routerLinkActive="active">Registro</a></li>
       <li *ngIf="isLoggedIn()">
         <a href="#" (click)="onLogout()">Logout</a>
       </li>
