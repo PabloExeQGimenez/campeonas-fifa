@@ -65,7 +65,7 @@ http://localhost:3000/api/v1/api-doc
 2. Navega al directorio del proyecto:
 
   ```bash
-  cd campeonas-fifa
+  cd campeonas-fifa/docker
   ```
 3. Levanta el entorno completo con Docker Compose:
 
