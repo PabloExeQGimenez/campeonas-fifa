@@ -71,6 +71,7 @@ http://localhost:3000/api/v1/api-doc
 
    ```bash
   docker-compose up
+     ```
 
 
 ## 🔑 Credenciales de Acceso
